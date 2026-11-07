@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 # Projet-Analyse-Comparative-de-march-IIT
-=======
 # Comparateur de marché à Abidjan
 
 **Projet de DA Python — L2 Computer Science — séance 3**
 
 Cette application compare les prix de trois enseignes fictives : **Marché Lagune**, **Baobab Shop** et **Comptoir Ivoire**. Elle aide à répondre à une question simple : *pour un produit donné, quelle enseigne propose le meilleur prix réellement payable ?*
 
-> Les enseignes et les prix sont fictifs. Ils ont été créés pour l'exercice et ne représentent aucun commerce réel.
+# Les enseignes et les prix sont fictifs. Ils ont été créés pour l'exercice et ne représentent aucun commerce réel.
 
 ## Le projet en quelques mots
 
@@ -227,4 +225,4 @@ exports/                 # comparatif exporté depuis l'application
 ```
 
 Le dossier `exports/` accueille les comparatifs exportés. Le fichier `.gitignore` empêche notamment d'ajouter à Git l'environnement virtuel, les fichiers temporaires Python et le journal local.
->>>>>>> 9418a67 (Crée l'architecture MVC)
+
