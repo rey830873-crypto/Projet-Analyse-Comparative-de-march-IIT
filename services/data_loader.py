@@ -3,6 +3,7 @@ import logging
 import re
 import unicodedata
 from dataclasses import replace
+from datetime import date
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -162,7 +163,12 @@ class DataLoader:
                 self.note(f"Marché Lagune ligne {i} : ancien prix inférieur au prix actuel; ancien prix ignoré.")
             if not availability:
                 self.note(f"Marché Lagune ligne {i} : disponibilité manquante; offre écartée.")
-            self._add_offer(STORES[0], name, price, availability.casefold() != "rupture" and bool(availability), availability or "Inconnue", path.name, i)
+            availability_key = clean_text(availability)
+            valid_statuses = {"en stock", "stock limite", "rupture"}
+            if availability and availability_key not in valid_statuses:
+                self.note(f"Marché Lagune ligne {i} : disponibilité inconnue « {availability} »; offre écartée.")
+            is_available = availability_key in {"en stock", "stock limite"}
+            self._add_offer(STORES[0], name, price, is_available, availability or "Inconnue", path.name, i)
         self.note(f"Marché Lagune : {len(rows)} lignes lues (CSV séparé par point-virgule).")
 
     def _load_baobab(self):
@@ -211,17 +217,29 @@ class DataLoader:
     def _load_history(self):
         path = self._required("historique_prix.csv")
         result = []
-        names = {clean_text(s): s for s in STORES}
+        seen = set()
         aliases = {"marche lagune": STORES[0], "baobab shop": STORES[1], "comptoir ivoire": STORES[2]}
         frame = pd.read_csv(path, encoding="utf-8-sig", dtype=str, keep_default_na=False)
         for row_no, row in enumerate(frame.to_dict(orient="records"), 2):
             store = aliases.get(clean_text(row.get("source", "")))
             price = number(row.get("prix_fcfa"))
             pid = str(row.get("produit_id", "")).strip().upper()
-            date = str(row.get("date", "")).strip()
+            date_text = str(row.get("date", "")).strip()
+            try:
+                parsed_date = date.fromisoformat(date_text)
+                if parsed_date.isoformat() != date_text or not (date(2025, 11, 1) <= parsed_date <= date(2026, 10, 31)):
+                    raise ValueError
+            except ValueError:
+                self.note(f"Historique ligne {row_no} : date invalide ou hors période; ligne ignorée.")
+                continue
             if not store or pid not in self.catalog or price is None or price <= 0:
                 self.note(f"Historique ligne {row_no} : source, produit ou prix invalide; ligne ignorée.")
                 continue
-            result.append(HistoryPoint(date, store, pid, price))
+            key = (date_text, store, pid)
+            if key in seen:
+                self.note(f"Historique ligne {row_no} : observation dupliquée pour {store}, {pid} et {date_text}; ligne ignorée.")
+                continue
+            seen.add(key)
+            result.append(HistoryPoint(date_text, store, pid, price))
         self.note(f"Historique chargé : {len(result):,} lignes valides (indexation en mémoire).".replace(",", " "))
         return result
