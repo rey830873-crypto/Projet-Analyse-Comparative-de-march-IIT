@@ -16,6 +16,7 @@ class AnalysisService:
         self.comparisons = []
         self.history_index = defaultdict(list)
         self.elapsed_seconds = 0.0
+        self._history_summary = None
 
     def run(self):
         start = perf_counter()
@@ -38,17 +39,18 @@ class AnalysisService:
             if len(prices) < 2:
                 continue
             low, high = min(prices.values()), max(prices.values())
-            winner = next(s for s in STORES if prices.get(s) == low)
+            winners = [s for s in STORES if prices.get(s) == low]
             product = self.loader.catalog[pid]
-            results.append(Comparison(pid, product.name, prices, winner, low, high - low, ((high-low)/low*100 if low else 0)))
+            results.append(Comparison(pid, product.name, prices, " / ".join(winners), low, high - low, ((high-low)/low*100 if low else 0)))
         return sorted(results, key=lambda r: (-r.spread_percent, r.product_id))
 
     def summary(self):
         wins = {s: 0 for s in STORES}
         gaps = {s: [] for s in STORES}
         for row in self.comparisons:
-            wins[row.cheapest_store] += 1
             for store, price in row.prices.items():
+                if price == row.cheapest_price:
+                    wins[store] += 1
                 gaps[store].append((price-row.cheapest_price)/row.cheapest_price*100 if row.cheapest_price else 0)
         averages = {s: (sum(gaps[s])/len(gaps[s]) if gaps[s] else None) for s in STORES}
         return wins, averages, self.comparisons[:3]
@@ -78,6 +80,8 @@ class AnalysisService:
         return rows, best_total, best_items
 
     def history_summary(self):
+        if self._history_summary is not None:
+            return self._history_summary
         grouped = defaultdict(list)
         # On récupère chaque série par sa clé (enseigne, produit) dans l'index.
         for store in STORES:
@@ -92,4 +96,5 @@ class AnalysisService:
             result[store] = {"annual": annual_avg, "black_friday": bf_avg,
                              "difference_pct": ((bf_avg-annual_avg)/annual_avg*100 if annual_avg and bf_avg is not None else None),
                              "rows": len(annual), "bf_rows": len(bf)}
+        self._history_summary = result
         return result
