@@ -47,8 +47,8 @@ class MainController:
             if widget: widget.deleteLater()
         from PyQt6.QtWidgets import QFrame,QVBoxLayout,QLabel
         for i,(label,value) in enumerate(cards):
-            card=QFrame(); card.setStyleSheet("QFrame{background:white;border:1px solid #e1e4e7;border-radius:10px;}")
-            box=QVBoxLayout(card); lab=QLabel(label); lab.setWordWrap(True); lab.setStyleSheet("color:#74787d;"); val=QLabel(value); val.setWordWrap(True); val.setStyleSheet("font-size:21pt;font-weight:700;color:#e77c70;"); box.addWidget(lab); box.addWidget(val)
+            card=QFrame(); card.setStyleSheet("QFrame{background:#FFFDF8;border:1px solid #E5DED4;border-radius:10px;}")
+            box=QVBoxLayout(card); lab=QLabel(label); lab.setWordWrap(True); lab.setStyleSheet("color:#6F6A64;"); val=QLabel(value); val.setWordWrap(True); val.setStyleSheet("font-size:21pt;font-weight:700;color:#C65D2E;"); box.addWidget(lab); box.addWidget(val)
             self.view.cards.addWidget(card,0,i)
         comparison_rows=[]
         for row in a.comparisons:
