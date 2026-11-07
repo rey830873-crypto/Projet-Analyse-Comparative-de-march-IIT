@@ -70,7 +70,7 @@ Les fichiers d'origine dans `Data/` ne sont jamais modifiés. À chaque clic sur
 | `donnees_nettoyees/historique_nettoye.csv` | Lignes valides de l'historique, avec dates, enseignes, identifiants et prix harmonisés. |
 | `logs/journal_nettoyage.txt` | Journal lisible avec une entrée par problème, correction ou étape de chargement signalée. |
 | `logs/journal_nettoyage.csv` | Le même journal sous forme de tableau pour l'ouvrir ou le filtrer dans un tableur. |
-| `logs/nettoyage.log` | Journal technique horodaté de l'exécution. Il complète le journal lisible. |
+| `comparateur.log` | Journal technique horodaté de l'exécution. Il complète le journal lisible. |
 | `exports/comparatif_prix.csv` | Comparatif complet enregistré lorsque l'utilisateur choisit **Exporter le comparatif en CSV**. Le sélecteur propose `exports/` par défaut. |
 
 Ces sorties sont recréées à chaque analyse avec les données sélectionnées. Les fichiers bruts restent dans `Data/` pour permettre de refaire les calculs ou de vérifier le nettoyage.
@@ -207,22 +207,66 @@ La lecture du JSON utilise le module `json`, déjà fourni avec Python.
 | Comparaison annuelle et Black Friday | Menu **Historique** |
 | Complexité et mesure du temps | Carte de temps dans la vue d'ensemble et section ci-dessus |
 
-## Fichiers du projet
+## Architecture complète des dossiers et fichiers
+
+Voici l'organisation réelle du projet. Les dossiers `__pycache__/` et `.venv/` qui peuvent apparaître sur l'ordinateur ne sont pas détaillés : Python les crée localement, et `.venv/` contient les bibliothèques installées pour cet ordinateur.
 
 ```text
-main.py
-requirements.txt
-README.md
-.gitignore
-models/
-views/
-controllers/
-services/
-donnees_nettoyees/       # offres normalisées et historique nettoyé (créés à l'analyse)
-logs/                    # journal lisible et journal technique
-Data/
-exports/                 # comparatif exporté depuis l'application
+Projet 2 Analyse comparatif/
+├── main.py                         # Démarre l'application PyQt6
+├── requirements.txt                # Bibliothèques nécessaires au projet
+├── README.md                       # Guide d'installation, d'utilisation et d'explication
+├── .gitignore                      # Fichiers locaux ou temporaires à ne pas envoyer sur Git
+├── comparateur.log                 # Journal technique d'exécution
+│
+├── Data/                           # Fichiers bruts fournis pour l'exercice
+│   ├── catalogue_reference.csv     # Catalogue commun des produits
+│   ├── marche_lagune.csv            # Offres de Marché Lagune
+│   ├── baobab_shop.json             # Offres de Baobab Shop
+│   ├── comptoir_ivoire.xlsx         # Tarifs de Comptoir Ivoire
+│   └── historique_prix.csv          # Historique des prix sur un an
+│
+├── models/                         # Modèle : objets représentant les données
+│   ├── __init__.py                 # Déclare le dossier comme module Python
+│   └── entities.py                 # Produit, offre, prix historique et résultats
+│
+├── views/                          # Vue : présentation et interaction avec l'utilisateur
+│   ├── __init__.py                 # Déclare le dossier comme module Python
+│   └── main_window.py              # Fenêtre, menu, tableaux, filtres et boutons
+│
+├── controllers/                    # Contrôleur : relie les actions et les traitements
+│   ├── __init__.py                 # Déclare le dossier comme module Python
+│   └── main_controller.py          # Lance l'analyse et transmet les résultats à la vue
+│
+├── services/                       # Services : lecture, calculs et écriture des résultats
+│   ├── __init__.py                 # Déclare le dossier comme module Python
+│   ├── data_loader.py              # Charge et nettoie les fichiers d'entrée
+│   ├── analysis_service.py          # Rapproche les produits et calcule les comparaisons
+│   └── output_writer.py             # Enregistre les données nettoyées et les journaux
+│
+├── donnees_nettoyees/              # Résultats intermédiaires créés après l'analyse
+│   ├── offres_normalisees.csv       # Offres converties dans une structure commune
+│   └── historique_nettoye.csv       # Lignes valides de l'historique
+│
+├── logs/                           # Journaux lisibles des corrections et exclusions
+│   ├── journal_nettoyage.txt        # Journal en texte, facile à lire
+│   └── journal_nettoyage.csv        # Même journal en tableau
+│
+└── exports/                        # Destination proposée pour les exports utilisateur
+    └── comparatif_prix.csv          # Créé après l'export du comparatif depuis l'application
 ```
 
-Le dossier `exports/` accueille les comparatifs exportés. Le fichier `.gitignore` empêche notamment d'ajouter à Git l'environnement virtuel, les fichiers temporaires Python et le journal local.
+### Comment les parties travaillent ensemble
+
+1. **`main.py`** crée l'application et ouvre la fenêtre.
+2. **`views/`** affiche le menu et les résultats, puis transmet les clics de l'utilisateur.
+3. **`controllers/`** reçoit ces actions, demande les traitements nécessaires et actualise l'écran.
+4. **`services/data_loader.py`** lit le contenu de `Data/`, nettoie les valeurs et prépare les offres et l'historique.
+5. **`models/`** fournit les structures utilisées pour représenter produits et offres de manière cohérente.
+6. **`services/analysis_service.py`** rapproche les offres du catalogue et calcule les prix, écarts, panier et statistiques historiques.
+7. **`services/output_writer.py`** crée les fichiers de `donnees_nettoyees/` et `logs/`. Le comparatif exporté par l'utilisateur est enregistré dans `exports/`.
+
+Le modèle MVC correspond donc à `models/` (données), `views/` (écran) et `controllers/` (liaison entre écran et traitements). Le dossier `services/` porte les opérations de chargement et d'analyse pour ne pas mélanger ces opérations avec le code de l'interface.
+
+Les fichiers de `Data/` sont les sources originales ; le programme ne les remplace pas. Les dossiers de résultats contiennent des fichiers générés ou exportés. `.gitignore` exclut notamment l'environnement virtuel, les caches Python et les journaux techniques locaux.
 
