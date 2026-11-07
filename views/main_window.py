@@ -110,7 +110,7 @@ class MainWindow(QMainWindow):
         self.cards=QGridLayout(); self.cards.setSpacing(14); layout.addLayout(self.cards)
         self.insight=QLabel("La synthèse rassemble les principaux résultats : enseignes les moins chères, écarts moyens et meilleures occasions. Cliquez sur « Lancer l’analyse » pour la calculer."); self.insight.setWordWrap(True); self.insight.setStyleSheet("background:#F1ECE4;border-left:4px solid #C65D2E;padding:14px;border-radius:5px;font-size:10.5pt;"); layout.addWidget(self.insight)
         store_title=QLabel("Résultats par enseigne"); store_title.setStyleSheet("font-weight:700;font-size:11pt;color:#333333;"); layout.addWidget(store_title)
-        self.store_summary_table=self._table(["Enseigne","Victoires","Part des comparables gagnés","Écart moyen au minimum","Offres sur produits comparables"])
+        self.store_summary_table=self._table(["Enseigne","Produits au prix minimum","Part des comparables au minimum","Écart moyen au minimum","Offres sur produits comparables"])
         self.store_summary_table.setMaximumHeight(190); layout.addWidget(self.store_summary_table)
         top_title=QLabel("Les trois plus fortes économies potentielles"); top_title.setStyleSheet("font-weight:700;font-size:11pt;color:#333333;"); layout.addWidget(top_title)
         top_note=QLabel("Classées selon l'écart en pourcentage entre l'offre la plus basse et la plus élevée."); top_note.setStyleSheet("color:#6F6A64;"); top_note.setWordWrap(True); layout.addWidget(top_note)

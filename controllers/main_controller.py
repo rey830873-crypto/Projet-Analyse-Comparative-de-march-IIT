@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+from time import perf_counter
 
 import pandas as pd
 from services.analysis_service import AnalysisService, BASKET
@@ -20,6 +21,7 @@ class MainController:
         self.view.export_button.clicked.connect(self.export_csv)
 
     def load_data(self):
+        started=perf_counter()
         data_dir=self.view.data_dir or Path(__file__).resolve().parents[1]/"Data"
         self.view.data_dir=data_dir
         self.view.data_source.setText(f"Chargement depuis le dossier : {data_dir.name}")
@@ -33,6 +35,8 @@ class MainController:
             writer.write_cleaned_data(self.loader)
             writer.write_journal(self.loader.journal)
             self.analysis=AnalysisService(self.loader).run()
+            self.analysis.history_summary()
+            self.analysis.elapsed_seconds=perf_counter()-started
             self.render()
         except Exception as exc:
             self.view.status.setText("Les données n'ont pas pu être chargées.")
@@ -41,7 +45,7 @@ class MainController:
     def render(self):
         a=self.analysis; l=self.loader
         wins, averages, top=a.summary()
-        cards=[("Produits de référence",str(len(l.catalog))), ("Offres lues",str(len(l.offers))), ("Produits comparables",str(len(a.comparisons))), ("Temps index + comparatif",f"{a.elapsed_seconds*1000:.2f} ms")]
+        cards=[("Produits de référence",str(len(l.catalog))), ("Offres lues",str(len(l.offers))), ("Produits comparables",str(len(a.comparisons))), ("Temps de traitement",f"{a.elapsed_seconds*1000:.2f} ms")]
         while self.view.cards.count():
             item=self.view.cards.takeAt(0); widget=item.widget()
             if widget: widget.deleteLater()
@@ -101,7 +105,7 @@ class MainController:
         self.view.journal.setPlainText("\n".join(f"• {line}" for line in l.journal) or "Aucun problème détecté.")
         if l.unmatched:
             self.view.journal.append(f"\nRapprochements à vérifier : {len(l.unmatched)}. Ces lignes sont exclues des comparaisons.")
-        self.view.insight.setText(f"La synthèse porte sur {comparable_count} produits ayant au moins deux offres utilisables. Les ruptures et les prix invalides sont exclus. L'écart moyen compare le prix de chaque enseigne au minimum pour les produits où elle a une offre. Baobab inclut la livraison; Comptoir Ivoire inclut la remise.")
+        self.view.insight.setText(f"La synthèse porte sur {comparable_count} produits ayant au moins deux offres utilisables. Les ruptures et les prix invalides sont exclus. L'écart moyen compare le prix de chaque enseigne au minimum pour les produits où elle a une offre. Une égalité au prix minimum est comptée pour chaque enseigne concernée. Baobab inclut la livraison; Comptoir Ivoire inclut la remise.")
         self.view.status.setText(f"Analyse terminée · {len(l.history):,} lignes d'historique · {len(l.unmatched)} rapprochement(s) à vérifier · fichiers nettoyés enregistrés.".replace(","," "))
 
     def export_csv(self):

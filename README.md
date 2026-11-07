@@ -69,7 +69,7 @@ Les fichiers d'origine dans `Data/` ne sont jamais modifiés. À chaque clic sur
 | `donnees_nettoyees/historique_nettoye.csv` | Lignes valides de l'historique, avec dates, enseignes, identifiants et prix harmonisés. |
 | `logs/journal_nettoyage.txt` | Journal lisible avec une entrée par problème, correction ou étape de chargement signalée. |
 | `logs/journal_nettoyage.csv` | Le même journal sous forme de tableau pour l'ouvrir ou le filtrer dans un tableur. |
-| `comparateur.log` | Journal technique horodaté de l'exécution. Il complète le journal lisible. |
+| `logs/nettoyage.log` | Journal technique horodaté de l'exécution. Il complète le journal lisible. |
 | `exports/comparatif_prix.csv` | Comparatif complet enregistré lorsque l'utilisateur choisit **Exporter le comparatif en CSV**. Le sélecteur propose `exports/` par défaut. |
 
 Ces sorties sont recréées à chaque analyse avec les données sélectionnées. Les fichiers bruts restent dans `Data/` pour permettre de refaire les calculs ou de vérifier le nettoyage.
@@ -98,6 +98,8 @@ Le programme ne considère pas tout prix écrit dans un fichier comme un prix qu
 - **Baobab Shop** : le prix payé est `amount + delivery_fee`. L'offre est admissible si le stock est supérieur à zéro et si la devise est XOF/FCFA.
 - **Comptoir Ivoire** : le prix payé est le prix catalogue diminué du pourcentage de remise. Une quantité en rayon égale à zéro rend l'offre indisponible.
 - **Prix manquant, nul ou négatif** : l'offre ne peut pas gagner le comparatif et le problème est signalé.
+- **Disponibilité inconnue** : une valeur autre que « En stock », « Stock limité » ou « Rupture » est signalée et l'offre est écartée.
+- **Historique** : une date mal formée ou hors de la période demandée, ainsi qu'une observation répétée pour la même date, source et produit, est ignorée et signalée.
 - **Prix très éloigné** : si le prix d'une offre dépasse trois fois la médiane des offres relevées pour ce même produit, il est signalé comme anomalie probable et mis à l'écart. C'est une règle de détection à vérifier, pas la preuve certaine d'une erreur.
 
 ## Exemple des fichiers fournis : le Tecno Spark 20 de Marché Lagune affiche un prix de 779 000 FCFA, très supérieur aux offres comparables. Le programme le signale et l'écarte. Dans le panier, le prix correspondant est donc affiché par un tiret et le panier de Marché Lagune est marqué incomplet pour ce produit.
@@ -115,7 +117,7 @@ Exemple : si Baobab Shop demande 104 000 FCFA et Comptoir Ivoire 92 990 FCFA pou
 Écart en % = (écart en FCFA / prix minimum) × 100
 ```
 
-Dans cet exemple, l'écart est de 11 010 FCFA, soit environ 11,8 % du prix le plus bas. La colonne **Moins cher** désigne l'enseigne proposant le prix admissible minimum. Les offres en rupture ou sans prix exploitable ne peuvent pas gagner.
+Dans cet exemple, l'écart est de 11 010 FCFA, soit environ 11,8 % du prix le plus bas. La colonne **Moins cher** désigne l'enseigne ou les enseignes proposant le prix admissible minimum. En cas d'égalité, toutes les enseignes à ce prix sont indiquées. Les offres en rupture ou sans prix exploitable ne peuvent pas gagner.
 
 Le comparatif complet peut être exporté en CSV. Le filtre par catégorie ne change pas les calculs : il sert seulement à rendre les lignes plus faciles à lire.
 
@@ -129,7 +131,9 @@ La page **Synthèse générale** indique :
 - combien de fois chaque enseigne est la moins chère ;
 - l'écart moyen de chaque enseigne par rapport au prix minimum, sur les produits comparables où elle a une offre admissible.
 
-Le tableau des trois économies potentielles est classé selon **l'écart en pourcentage**. Il montre également l'écart en FCFA. Un produit ayant le plus grand écart en pourcentage n'est pas nécessairement celui dont l'écart en FCFA est le plus grand.
+Le tableau **Résultats par enseigne** donne, pour chacune, le nombre et la part des produits comparables où elle propose le prix minimum, son écart moyen au prix minimum et le nombre de produits comparables où elle a une offre. Si plusieurs enseignes partagent le prix minimum, chacune est comptée ; les parts peuvent donc totaliser plus de 100 %. L'écart moyen est calculé seulement sur les produits où l'enseigne a un prix exploitable.
+
+Le tableau des trois économies potentielles est classé selon **l'écart en pourcentage**. Il indique aussi l'enseigne la moins chère, le prix minimum et l'écart avec l'offre la plus élevée, en FCFA et en pourcentage. Un produit ayant le plus grand écart en pourcentage n'est pas nécessairement celui dont l'écart en FCFA est le plus grand.
 
 ### 6. Panier de rentrée
 
@@ -167,7 +171,7 @@ Une recherche naïve pourrait reparcourir les 20 876 lignes de l'historique à c
 - La comparaison des offres courantes parcourt les offres et les groupes de produits, plutôt que de refaire une recherche complète dans l'historique pour chaque produit.
 - Pour calculer les moyennes annuelles et Black Friday, le programme récupère les séries dans l'index puis examine les observations de chaque enseigne. Cette étape prend aussi **O(n)** : elle parcourt les données un nombre constant de fois, pas une fois par produit.
 
-Le temps affiché dans l'application mesure la construction de l'index et le calcul du comparatif. Il n'inclut pas la lecture initiale et le nettoyage des fichiers, le calcul des moyennes historiques ni le temps d'affichage de l'interface. La valeur change selon l'ordinateur et l'environnement Python ; le nombre de millisecondes affiché n'est donc pas une constante attendue partout.
+Le temps affiché dans l'application mesure le traitement des données depuis le début du chargement : lecture des fichiers, nettoyage et rapprochement, écriture des résultats nettoyés, construction de l'index, comparatif et calcul des moyennes historiques. Il exclut le rendu graphique des tableaux. La valeur change selon l'ordinateur et l'environnement Python ; le nombre de millisecondes affiché n'est donc pas une constante attendue partout.
 
 ## Organisation du code : MVC
 
@@ -204,7 +208,7 @@ La lecture du JSON utilise le module `json`, déjà fourni avec Python.
 | Nombre de victoires, écart moyen, top 3 | **Synthèse générale** |
 | Coût du panier par enseigne et panier optimisé | Menu **Panier de rentrée** |
 | Comparaison annuelle et Black Friday | Menu **Historique** |
-| Complexité et mesure du temps | Carte de temps dans la vue d'ensemble et section ci-dessus |
+| Complexité et mesure du temps | Carte **Temps de traitement** dans la Synthèse générale et section ci-dessus |
 
 ## Architecture complète des dossiers et fichiers
 
@@ -216,7 +220,7 @@ Projet 2 Analyse comparatif/
 ├── requirements.txt                # Bibliothèques nécessaires au projet
 ├── README.md                       # Guide d'installation, d'utilisation et d'explication
 ├── .gitignore                      # Fichiers locaux ou temporaires à ne pas envoyer sur Git
-├── comparateur.log                 # Journal technique d'exécution
+├── comparateur.log                 # Journal conservé dans le dépôt (ancien fichier)
 │
 ├── Data/                           # Fichiers bruts fournis pour l'exercice
 │   ├── catalogue_reference.csv     # Catalogue commun des produits
@@ -249,7 +253,8 @@ Projet 2 Analyse comparatif/
 │
 ├── logs/                           # Journaux lisibles des corrections et exclusions
 │   ├── journal_nettoyage.txt        # Journal en texte, facile à lire
-│   └── journal_nettoyage.csv        # Même journal en tableau
+│   ├── journal_nettoyage.csv        # Même journal en tableau
+│   └── nettoyage.log                # Journal technique horodaté de l'exécution
 │
 └── exports/                        # Destination proposée pour les exports utilisateur
     └── comparatif_prix.csv          # Créé après l'export du comparatif depuis l'application
@@ -262,7 +267,7 @@ Projet 2 Analyse comparatif/
 3. **`controllers/`** reçoit ces actions, demande les traitements nécessaires et actualise l'écran.
 4. **`services/data_loader.py`** lit le contenu de `Data/`, nettoie les valeurs et prépare les offres et l'historique.
 5. **`models/`** fournit les structures utilisées pour représenter produits et offres de manière cohérente.
-6. **`services/analysis_serv ice.py`** rapproche les offres du catalogue et calcule les prix, écarts, panier et statistiques historiques.
+6. **`services/analysis_service.py`** rapproche les offres du catalogue et calcule les prix, écarts, panier et statistiques historiques.
 7. **`services/output_writer.py`** crée les fichiers de `donnees_nettoyees/` et `logs/`. Le comparatif exporté par l'utilisateur est enregistré dans `exports/`.
 
 Le modèle MVC correspond donc à `models/` (données), `views/` (écran) et `controllers/` (liaison entre écran et traitements). Le dossier `services/` porte les opérations de chargement et d'analyse pour ne pas mélanger ces opérations avec le code de l'interface.
