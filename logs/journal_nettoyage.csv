@@ -1,0 +1,11 @@
+﻿numero;message
+1;Catalogue chargé : 30 produits.
+2;"Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré."
+3;"Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable."
+4;"Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable."
+5;Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+6;"Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable."
+7;Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+8;"Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique."
+9;"Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable."
+10;Historique chargé : 20 876 lignes valides (indexation en mémoire).

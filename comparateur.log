@@ -1,0 +1,109 @@
+2026-11-07 00:36:35,499 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:36:35,506 | INFO | Marché Lagune ligne 2 : rapprochement non fiable pour « SAMSUNG GALAXY A15 (128GB) »; exclu des calculs.
+2026-11-07 00:36:35,508 | INFO | Marché Lagune ligne 3 : rapprochement non fiable pour « SAMSUNG GALAXY A25 (128GB) »; exclu des calculs.
+2026-11-07 00:36:35,509 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:36:35,528 | INFO | Marché Lagune ligne 14 : rapprochement non fiable pour « SAMSUNG GALAXY A15 (128GB) »; exclu des calculs.
+2026-11-07 00:36:35,537 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:36:35,545 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:36:35,548 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:36:35,550 | INFO | Baobab Shop ligne 1 : rapprochement non fiable pour « Galaxy A15 128GB - Samsung »; exclu des calculs.
+2026-11-07 00:36:35,552 | INFO | Baobab Shop ligne 2 : rapprochement non fiable pour « Galaxy A25 128GB - Samsung »; exclu des calculs.
+2026-11-07 00:36:35,565 | INFO | Baobab Shop ligne 13 : rapprochement non fiable pour « Seagate Expansion 1TB »; exclu des calculs.
+2026-11-07 00:36:35,566 | INFO | Baobab Shop ligne 14 : rapprochement non fiable pour « Logitech M185 Wireless Mouse »; exclu des calculs.
+2026-11-07 00:36:35,571 | INFO | Baobab Shop ligne 18 : rapprochement non fiable pour « Hisense Fridge 205L »; exclu des calculs.
+2026-11-07 00:36:35,574 | INFO | Baobab Shop ligne 21 : rapprochement non fiable pour « LG Air Conditioner 1HP »; exclu des calculs.
+2026-11-07 00:36:35,576 | INFO | Baobab Shop ligne 23 : rapprochement non fiable pour « Philips Steam Iron »; exclu des calculs.
+2026-11-07 00:36:35,577 | INFO | Baobab Shop ligne 24 : rapprochement non fiable pour « Samsung Microwave 23L »; exclu des calculs.
+2026-11-07 00:36:35,580 | INFO | Baobab Shop ligne 26 : rapprochement non fiable pour « Hisense Air Conditioner 1.5HP »; exclu des calculs.
+2026-11-07 00:36:35,580 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:36:35,590 | INFO | Comptoir Ivoire ligne 4 : rapprochement non fiable pour « Samsun Galaxy A15 128Go »; exclu des calculs.
+2026-11-07 00:36:35,592 | INFO | Comptoir Ivoire ligne 5 : rapprochement non fiable pour « Samsung A25 128Go »; exclu des calculs.
+2026-11-07 00:36:35,605 | INFO | Comptoir Ivoire ligne 18 : rapprochement non fiable pour « TV Samsung 43" »; exclu des calculs.
+2026-11-07 00:36:35,611 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:36:35,612 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:36:35,777 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 00:38:44,401 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:38:44,409 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:38:44,430 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:38:44,442 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:38:44,447 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:38:44,482 | INFO | Baobab Shop ligne 22 : rapprochement non fiable pour « Moulinex Blender 1.5L »; exclu des calculs.
+2026-11-07 00:38:44,484 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:38:44,487 | INFO | Baobab Shop ligne 25 : rapprochement non fiable pour « Electric Kettle 1.7L »; exclu des calculs.
+2026-11-07 00:38:44,489 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:38:44,508 | INFO | Comptoir Ivoire ligne 14 : rapprochement non fiable pour « DD externe Seagate 1To »; exclu des calculs.
+2026-11-07 00:38:44,510 | INFO | Comptoir Ivoire ligne 16 : rapprochement non fiable pour « Frigo Hisense 205L »; exclu des calculs.
+2026-11-07 00:38:44,514 | INFO | Comptoir Ivoire ligne 20 : rapprochement non fiable pour « Clim LG 1CV »; exclu des calculs.
+2026-11-07 00:38:44,521 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:38:44,521 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:38:44,749 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 00:39:25,188 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:39:25,196 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:39:25,206 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:39:25,216 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:39:25,223 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:39:25,278 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:39:25,283 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:39:25,346 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:39:25,346 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:39:25,629 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 00:39:59,797 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:39:59,802 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:39:59,811 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:39:59,820 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:39:59,824 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:39:59,854 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:39:59,860 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:39:59,923 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:39:59,923 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:40:00,101 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 00:40:52,495 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:40:52,509 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:40:52,528 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:40:52,536 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:40:52,540 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:40:52,567 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:40:52,571 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:40:52,602 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:40:52,602 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:40:52,783 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 00:47:38,730 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:47:38,739 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:47:38,750 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:47:38,758 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:47:38,762 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:47:38,791 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:47:38,795 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:47:38,829 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:47:38,829 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:47:39,008 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 00:50:09,825 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:50:09,832 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:50:09,841 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:50:09,849 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:50:09,853 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:50:09,880 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:50:09,884 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:50:09,915 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:50:09,915 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:50:10,103 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 00:57:20,487 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 00:57:20,498 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 00:57:20,515 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:57:20,526 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:57:20,530 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 00:57:20,557 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 00:57:20,561 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 00:57:20,591 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 00:57:20,591 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 00:57:20,754 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).
+2026-11-07 01:11:37,120 | INFO | Catalogue chargé : 30 produits.
+2026-11-07 01:11:37,125 | INFO | Marché Lagune ligne 5 : ancien prix inférieur au prix actuel; ancien prix ignoré.
+2026-11-07 01:11:37,134 | INFO | Marché Lagune ligne 20 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 01:11:37,142 | INFO | Marché Lagune ligne 27 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 01:11:37,145 | INFO | Marché Lagune : 30 lignes lues (CSV séparé par point-virgule).
+2026-11-07 01:11:37,173 | INFO | Baobab Shop ligne 23 : prix absent ou invalide; offre conservée sans prix exploitable.
+2026-11-07 01:11:37,177 | INFO | Baobab Shop : 26 articles lus (livraison ajoutée au prix).
+2026-11-07 01:11:37,205 | INFO | Comptoir Ivoire : 22 lignes lues; remise appliquée, retrait en boutique.
+2026-11-07 01:11:37,206 | INFO | Marché Lagune ligne 5 : prix 779 000 FCFA supérieur à 3 fois la médiane des enseignes pour P04; offre écartée comme anomalie probable.
+2026-11-07 01:11:37,368 | INFO | Historique chargé : 20 876 lignes valides (indexation en mémoire).

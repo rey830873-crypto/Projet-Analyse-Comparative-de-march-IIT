@@ -1,0 +1,79 @@
+﻿produit_id;produit;categorie;marque;enseigne;prix_fcfa;prix_utilisable;disponibilite;fichier_source;ligne_source
+P01;Samsung Galaxy A15 128 Go;Smartphone;Samsung;Marché Lagune;102900.0;False;Rupture;marche_lagune.csv;2
+P02;Samsung Galaxy A25 128 Go;Smartphone;Samsung;Marché Lagune;151500.0;True;En stock;marche_lagune.csv;3
+P03;Samsung Galaxy A55 256 Go;Smartphone;Samsung;Marché Lagune;288100.0;False;Rupture;marche_lagune.csv;4
+P04;Tecno Spark 20 128 Go;Smartphone;Tecno;Marché Lagune;779000.0;False;Prix suspect — à vérifier;marche_lagune.csv;5
+P05;Tecno Camon 30 256 Go;Smartphone;Tecno;Marché Lagune;136900.0;True;Stock limité;marche_lagune.csv;6
+P06;Infinix Hot 40i 128 Go;Smartphone;Infinix;Marché Lagune;69200.0;True;En stock;marche_lagune.csv;7
+P07;Infinix Note 40 256 Go;Smartphone;Infinix;Marché Lagune;132400.0;True;En stock;marche_lagune.csv;8
+P08;Itel A70 64 Go;Smartphone;Itel;Marché Lagune;45700.0;False;Rupture;marche_lagune.csv;9
+P09;Apple iPhone 13 128 Go;Smartphone;Apple;Marché Lagune;433700.0;True;En stock;marche_lagune.csv;10
+P10;Xiaomi Redmi Note 13 128 Go;Smartphone;Xiaomi;Marché Lagune;136900.0;True;En stock;marche_lagune.csv;11
+P11;HP 250 G9 Core i5 8 Go 512 Go;Informatique;HP;Marché Lagune;390800.0;True;En stock;marche_lagune.csv;12
+P12;Lenovo IdeaPad 3 Core i3 8 Go 256 Go;Informatique;Lenovo;Marché Lagune;309400.0;True;En stock;marche_lagune.csv;13
+P01;Samsung Galaxy A15 128 Go;Smartphone;Samsung;Marché Lagune;102900.0;False;Rupture;marche_lagune.csv;14
+P13;Dell Inspiron 15 Core i5 16 Go 512 Go;Informatique;Dell;Marché Lagune;442900.0;False;Rupture;marche_lagune.csv;15
+P14;Clé USB SanDisk 64 Go;Informatique;SanDisk;Marché Lagune;6100.0;True;En stock;marche_lagune.csv;16
+P15;Disque dur externe Seagate 1 To;Informatique;Seagate;Marché Lagune;37600.0;True;En stock;marche_lagune.csv;17
+P16;Souris sans fil Logitech M185;Informatique;Logitech;Marché Lagune;9200.0;True;En stock;marche_lagune.csv;18
+P17;Imprimante HP DeskJet 2720e;Informatique;HP;Marché Lagune;44000.0;True;En stock;marche_lagune.csv;19
+P19;Écran Samsung 24 pouces;Informatique;Samsung;Marché Lagune;;False;En stock;marche_lagune.csv;20
+P20;Réfrigérateur Hisense 205 L;Électroménager;Hisense;Marché Lagune;186100.0;True;En stock;marche_lagune.csv;21
+P21;Congélateur Nasco 200 L;Électroménager;Nasco;Marché Lagune;176000.0;True;En stock;marche_lagune.csv;22
+P22;TV Samsung 43 pouces Crystal UHD;Électroménager;Samsung;Marché Lagune;251100.0;True;En stock;marche_lagune.csv;23
+P23;TV Hisense 32 pouces;Électroménager;Hisense;Marché Lagune;97300.0;False;Rupture;marche_lagune.csv;24
+P24;Climatiseur LG 1 CV;Électroménager;LG;Marché Lagune;256600.0;True;Stock limité;marche_lagune.csv;25
+P25;Ventilateur sur pied Binatone 16 pouces;Électroménager;Binatone;Marché Lagune;21800.0;True;En stock;marche_lagune.csv;26
+P26;Mixeur Moulinex 1,5 L;Électroménager;Moulinex;Marché Lagune;;False;Rupture;marche_lagune.csv;27
+P27;Fer à repasser Philips;Électroménager;Philips;Marché Lagune;15700.0;True;En stock;marche_lagune.csv;28
+P28;Micro-ondes Samsung 23 L;Électroménager;Samsung;Marché Lagune;67200.0;True;En stock;marche_lagune.csv;29
+P30;Climatiseur Hisense 1,5 CV;Électroménager;Hisense;Marché Lagune;309700.0;True;Stock limité;marche_lagune.csv;30
+P23;TV Hisense 32 pouces;Électroménager;Hisense;Marché Lagune;97300.0;False;Rupture;marche_lagune.csv;31
+P01;Samsung Galaxy A15 128 Go;Smartphone;Samsung;Baobab Shop;104000.0;True;Stock : 5;baobab_shop.json;1
+P02;Samsung Galaxy A25 128 Go;Smartphone;Samsung;Baobab Shop;142000.0;True;Stock : 60;baobab_shop.json;2
+P03;Samsung Galaxy A55 256 Go;Smartphone;Samsung;Baobab Shop;273800.0;False;Stock : 0;baobab_shop.json;3
+P04;Tecno Spark 20 128 Go;Smartphone;Tecno;Baobab Shop;75000.0;True;Stock : 20;baobab_shop.json;4
+P05;Tecno Camon 30 256 Go;Smartphone;Tecno;Baobab Shop;135400.0;True;Stock : 5;baobab_shop.json;5
+P06;Infinix Hot 40i 128 Go;Smartphone;Infinix;Baobab Shop;69500.0;True;Stock : 35;baobab_shop.json;6
+P07;Infinix Note 40 256 Go;Smartphone;Infinix;Baobab Shop;132700.0;True;Stock : 60;baobab_shop.json;7
+P09;Apple iPhone 13 128 Go;Smartphone;Apple;Baobab Shop;417200.0;True;Stock : 60;baobab_shop.json;8
+P10;Xiaomi Redmi Note 13 128 Go;Smartphone;Xiaomi;Baobab Shop;134100.0;True;Stock : 60;baobab_shop.json;9
+P11;HP 250 G9 Core i5 8 Go 512 Go;Informatique;HP;Baobab Shop;354200.0;True;Stock : 8;baobab_shop.json;10
+P12;Lenovo IdeaPad 3 Core i3 8 Go 256 Go;Informatique;Lenovo;Baobab Shop;298200.0;True;Stock : 20;baobab_shop.json;11
+P14;Clé USB SanDisk 64 Go;Informatique;SanDisk;Baobab Shop;7300.0;True;Stock : 5;baobab_shop.json;12
+P15;Disque dur externe Seagate 1 To;Informatique;Seagate;Baobab Shop;38300.0;True;Stock : 5;baobab_shop.json;13
+P16;Souris sans fil Logitech M185;Informatique;Logitech;Baobab Shop;10200.0;False;Stock : 0;baobab_shop.json;14
+P17;Imprimante HP DeskJet 2720e;Informatique;HP;Baobab Shop;45700.0;True;Stock : 8;baobab_shop.json;15
+P18;Routeur TP-Link Archer C6;Informatique;TP-Link;Baobab Shop;28800.0;True;Stock : 8;baobab_shop.json;16
+P19;Écran Samsung 24 pouces;Informatique;Samsung;Baobab Shop;90800.0;True;Stock : 12;baobab_shop.json;17
+P20;Réfrigérateur Hisense 205 L;Électroménager;Hisense;Baobab Shop;183000.0;True;Stock : 3;baobab_shop.json;18
+P22;TV Samsung 43 pouces Crystal UHD;Électroménager;Samsung;Baobab Shop;244400.0;True;Stock : 35;baobab_shop.json;19
+P23;TV Hisense 32 pouces;Électroménager;Hisense;Baobab Shop;96000.0;True;Stock : 8;baobab_shop.json;20
+P24;Climatiseur LG 1 CV;Électroménager;LG;Baobab Shop;253300.0;True;Stock : 20;baobab_shop.json;21
+P26;Mixeur Moulinex 1,5 L;Électroménager;Moulinex;Baobab Shop;30900.0;True;Stock : 5;baobab_shop.json;22
+P27;Fer à repasser Philips;Électroménager;Philips;Baobab Shop;;False;Stock : 3;baobab_shop.json;23
+P28;Micro-ondes Samsung 23 L;Électroménager;Samsung;Baobab Shop;65400.0;True;Stock : 8;baobab_shop.json;24
+P29;Bouilloire électrique 1,7 L;Électroménager;Binatone;Baobab Shop;11600.0;True;Stock : 3;baobab_shop.json;25
+P30;Climatiseur Hisense 1,5 CV;Électroménager;Hisense;Baobab Shop;287100.0;False;Stock : 0;baobab_shop.json;26
+P01;Samsung Galaxy A15 128 Go;Smartphone;Samsung;Comptoir Ivoire;92990.0;True;Quantité : 25;comptoir_ivoire.xlsx;4
+P02;Samsung Galaxy A25 128 Go;Smartphone;Samsung;Comptoir Ivoire;150300.0;True;Quantité : 24;comptoir_ivoire.xlsx;5
+P04;Tecno Spark 20 128 Go;Smartphone;Tecno;Comptoir Ivoire;76300.0;True;Quantité : 18;comptoir_ivoire.xlsx;6
+P06;Infinix Hot 40i 128 Go;Smartphone;Infinix;Comptoir Ivoire;67165.0;True;Quantité : 10;comptoir_ivoire.xlsx;7
+P08;Itel A70 64 Go;Smartphone;Itel;Comptoir Ivoire;42940.0;True;Quantité : 1;comptoir_ivoire.xlsx;8
+P09;Apple iPhone 13 128 Go;Smartphone;Apple;Comptoir Ivoire;443700.0;True;Quantité : 19;comptoir_ivoire.xlsx;9
+P11;HP 250 G9 Core i5 8 Go 512 Go;Informatique;HP;Comptoir Ivoire;407000.0;True;Quantité : 1;comptoir_ivoire.xlsx;10
+P12;Lenovo IdeaPad 3 Core i3 8 Go 256 Go;Informatique;Lenovo;Comptoir Ivoire;287375.0;True;Quantité : 11;comptoir_ivoire.xlsx;11
+P13;Dell Inspiron 15 Core i5 16 Go 512 Go;Informatique;Dell;Comptoir Ivoire;406260.0;True;Quantité : 20;comptoir_ivoire.xlsx;12
+P14;Clé USB SanDisk 64 Go;Informatique;SanDisk;Comptoir Ivoire;6200.0;True;Quantité : 13;comptoir_ivoire.xlsx;13
+P15;Disque dur externe Seagate 1 To;Informatique;Seagate;Comptoir Ivoire;39500.0;True;Quantité : 11;comptoir_ivoire.xlsx;14
+P16;Souris sans fil Logitech M185;Informatique;Logitech;Comptoir Ivoire;9200.0;True;Quantité : 12;comptoir_ivoire.xlsx;15
+P20;Réfrigérateur Hisense 205 L;Électroménager;Hisense;Comptoir Ivoire;168385.0;True;Quantité : 13;comptoir_ivoire.xlsx;16
+P21;Congélateur Nasco 200 L;Électroménager;Nasco;Comptoir Ivoire;151725.0;True;Quantité : 4;comptoir_ivoire.xlsx;17
+P22;TV Samsung 43 pouces Crystal UHD;Électroménager;Samsung;Comptoir Ivoire;241300.0;False;Quantité : 0;comptoir_ivoire.xlsx;18
+P23;TV Hisense 32 pouces;Électroménager;Hisense;Comptoir Ivoire;88740.0;True;Quantité : 17;comptoir_ivoire.xlsx;19
+P24;Climatiseur LG 1 CV;Électroménager;LG;Comptoir Ivoire;279300.0;True;Quantité : 25;comptoir_ivoire.xlsx;20
+P25;Ventilateur sur pied Binatone 16 pouces;Électroménager;Binatone;Comptoir Ivoire;23700.0;False;Quantité : 0;comptoir_ivoire.xlsx;21
+P26;Mixeur Moulinex 1,5 L;Électroménager;Moulinex;Comptoir Ivoire;29200.0;True;Quantité : 17;comptoir_ivoire.xlsx;22
+P27;Fer à repasser Philips;Électroménager;Philips;Comptoir Ivoire;15700.0;True;Quantité : 8;comptoir_ivoire.xlsx;23
+P28;Micro-ondes Samsung 23 L;Électroménager;Samsung;Comptoir Ivoire;68500.0;True;Quantité : 20;comptoir_ivoire.xlsx;24
+P29;Bouilloire électrique 1,7 L;Électroménager;Binatone;Comptoir Ivoire;9200.0;True;Quantité : 5;comptoir_ivoire.xlsx;25

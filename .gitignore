@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# IDE et environnement local
+.vscode/
+.idea/
+.env
+
+# Résultats générés et journaux
+logs/*.log
+
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
