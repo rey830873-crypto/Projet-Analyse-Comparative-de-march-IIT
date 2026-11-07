@@ -47,8 +47,8 @@ class MainController:
             if widget: widget.deleteLater()
         from PyQt6.QtWidgets import QFrame,QVBoxLayout,QLabel
         for i,(label,value) in enumerate(cards):
-            card=QFrame(); card.setStyleSheet("QFrame{background:white;border:1px solid #e9e7e3;border-radius:10px;}")
-            box=QVBoxLayout(card); lab=QLabel(label); lab.setStyleSheet("color:#817467;"); val=QLabel(value); val.setStyleSheet("font-size:21pt;font-weight:700;color:#ed7d22;"); box.addWidget(lab); box.addWidget(val)
+            card=QFrame(); card.setStyleSheet("QFrame{background:white;border:1px solid #e1e4e7;border-radius:10px;}")
+            box=QVBoxLayout(card); lab=QLabel(label); lab.setWordWrap(True); lab.setStyleSheet("color:#74787d;"); val=QLabel(value); val.setWordWrap(True); val.setStyleSheet("font-size:21pt;font-weight:700;color:#e77c70;"); box.addWidget(lab); box.addWidget(val)
             self.view.cards.addWidget(card,0,i)
         comparison_rows=[]
         for row in a.comparisons:
@@ -58,6 +58,16 @@ class MainController:
         self.view.set_comparison_rows(comparison_rows)
         self.view.export_button.setEnabled(True)
         self.view.fill_table(self.view.top_table,[[i+1,r.product_name,self.view.money(r.cheapest_price),f"{self.view.money(r.spread_fcfa)} ({r.spread_percent:.1f} %)"] for i,r in enumerate(top)])
+        comparable_count=len(a.comparisons)
+        store_rows=[]
+        for store in STORES:
+            wins_pct=(wins[store]/comparable_count*100) if comparable_count else 0
+            coverage=sum(1 for row in a.comparisons if store in row.prices)
+            average="—" if averages[store] is None else f"{averages[store]:.1f} %"
+            store_rows.append([store,f"{wins[store]} / {comparable_count}",f"{wins_pct:.1f} %",average,f"{coverage} / {comparable_count}"])
+        self.view.fill_table(self.view.store_summary_table,store_rows)
+        top_rows=[[i+1,r.product_name,r.cheapest_store,self.view.money(r.cheapest_price),f"{self.view.money(r.spread_fcfa)} ({r.spread_percent:.1f} %)" ] for i,r in enumerate(top)]
+        self.view.fill_table(self.view.top_table,top_rows)
         basket, best, items=a.basket(); basket_rows=[]
         for pid,qty in BASKET.items():
             p=l.catalog.get(pid); costs=[]
@@ -91,9 +101,7 @@ class MainController:
         self.view.journal.setPlainText("\n".join(f"• {line}" for line in l.journal) or "Aucun problème détecté.")
         if l.unmatched:
             self.view.journal.append(f"\nRapprochements à vérifier : {len(l.unmatched)}. Ces lignes sont exclues des comparaisons.")
-        leaders=", ".join(f"{s} ({wins[s]} produits)" for s in STORES)
-        gap_text=", ".join(f"{s} : {averages[s]:.1f} %" if averages[s] is not None else f"{s} : aucune donnée" for s in STORES)
-        self.view.insight.setText(f"Prix minimum observé le plus souvent : {leaders}.\nÉcart moyen au prix le plus bas, parmi les produits comparables : {gap_text}.\nLe prix de Baobab inclut la livraison; celui du Comptoir tient compte de la remise. La disponibilité est appliquée avant de choisir le moins cher.")
+        self.view.insight.setText(f"La synthèse porte sur {comparable_count} produits ayant au moins deux offres utilisables. Les ruptures et les prix invalides sont exclus. L'écart moyen compare le prix de chaque enseigne au minimum pour les produits où elle a une offre. Baobab inclut la livraison; Comptoir Ivoire inclut la remise.")
         self.view.status.setText(f"Analyse terminée · {len(l.history):,} lignes d'historique · {len(l.unmatched)} rapprochement(s) à vérifier · fichiers nettoyés enregistrés.".replace(","," "))
 
     def export_csv(self):

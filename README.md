@@ -12,7 +12,7 @@ Chaque enseigne fournit ses informations dans un format différent et écrit les
 
 L'application affiche les résultats dans plusieurs espaces :
 
-- une vue d'ensemble des résultats ;
+- une synthèse générale des résultats ;
 - un comparatif filtrable par catégorie ;
 - le détail du panier de rentrée ;
 - l'évolution des prix autour du Black Friday ;
@@ -121,7 +121,7 @@ Le comparatif complet peut être exporté en CSV. Le filtre par catégorie ne ch
 
 ### 5. Synthèse et produits où comparer
 
-La vue d'ensemble indique :
+La page **Synthèse générale** indique :
 
 - combien de produits de référence ont été chargés ;
 - combien d'offres d'enseignes ont été lues ;
@@ -201,7 +201,7 @@ La lecture du JSON utilise le module `json`, déjà fourni avec Python.
 | Nettoyage et journal | Menu **Journal de nettoyage**, `donnees_nettoyees/` et `logs/` |
 | Rapprochement au catalogue | Identifiants P01 à P30 et nombre d'articles à rapprocher |
 | Prix, enseigne moins chère, écarts | Menu **Comparatif des prix** et export CSV |
-| Nombre de victoires, écart moyen, top 3 | **Vue d'ensemble** |
+| Nombre de victoires, écart moyen, top 3 | **Synthèse générale** |
 | Coût du panier par enseigne et panier optimisé | Menu **Panier de rentrée** |
 | Comparaison annuelle et Black Friday | Menu **Historique** |
 | Complexité et mesure du temps | Carte de temps dans la vue d'ensemble et section ci-dessus |
