@@ -1,7 +1,6 @@
 # Projet-Analyse-Comparative-de-march-IIT
 # Comparateur de marché à Abidjan
 
-**Projet de DA Python — L2 Computer Science — séance 3**
 
 Cette application compare les prix de trois enseignes fictives : **Marché Lagune**, **Baobab Shop** et **Comptoir Ivoire**. Elle aide à répondre à une question simple : *pour un produit donné, quelle enseigne propose le meilleur prix réellement payable ?*
 
@@ -101,7 +100,7 @@ Le programme ne considère pas tout prix écrit dans un fichier comme un prix qu
 - **Prix manquant, nul ou négatif** : l'offre ne peut pas gagner le comparatif et le problème est signalé.
 - **Prix très éloigné** : si le prix d'une offre dépasse trois fois la médiane des offres relevées pour ce même produit, il est signalé comme anomalie probable et mis à l'écart. C'est une règle de détection à vérifier, pas la preuve certaine d'une erreur.
 
-> Exemple des fichiers fournis : le Tecno Spark 20 de Marché Lagune affiche un prix de 779 000 FCFA, très supérieur aux offres comparables. Le programme le signale et l'écarte. Dans le panier, le prix correspondant est donc affiché par un tiret et le panier de Marché Lagune est marqué incomplet pour ce produit.
+## Exemple des fichiers fournis : le Tecno Spark 20 de Marché Lagune affiche un prix de 779 000 FCFA, très supérieur aux offres comparables. Le programme le signale et l'écarte. Dans le panier, le prix correspondant est donc affiché par un tiret et le panier de Marché Lagune est marqué incomplet pour ce produit.
 
 Les problèmes sont présentés dans l'onglet **Journal de nettoyage** et enregistrés dans les fichiers de `logs/`. Les versions TXT et CSV sont destinées à la lecture et à la vérification ; le fichier `.log` conserve en plus l'heure des opérations.
 
@@ -263,7 +262,7 @@ Projet 2 Analyse comparatif/
 3. **`controllers/`** reçoit ces actions, demande les traitements nécessaires et actualise l'écran.
 4. **`services/data_loader.py`** lit le contenu de `Data/`, nettoie les valeurs et prépare les offres et l'historique.
 5. **`models/`** fournit les structures utilisées pour représenter produits et offres de manière cohérente.
-6. **`services/analysis_service.py`** rapproche les offres du catalogue et calcule les prix, écarts, panier et statistiques historiques.
+6. **`services/analysis_serv ice.py`** rapproche les offres du catalogue et calcule les prix, écarts, panier et statistiques historiques.
 7. **`services/output_writer.py`** crée les fichiers de `donnees_nettoyees/` et `logs/`. Le comparatif exporté par l'utilisateur est enregistré dans `exports/`.
 
 Le modèle MVC correspond donc à `models/` (données), `views/` (écran) et `controllers/` (liaison entre écran et traitements). Le dossier `services/` porte les opérations de chargement et d'analyse pour ne pas mélanger ces opérations avec le code de l'interface.
